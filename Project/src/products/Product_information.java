@@ -8,10 +8,10 @@ public class Product_information {
     /**
      *
      * @param name
-     * @param password
+     * @param description
      * @param price
      */
-    public Product_information(String name, String password, double price)
+    public Product_information(String name, String description, double price)
     {
         this.name=name;
         this.description=description;

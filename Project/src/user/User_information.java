@@ -1,6 +1,6 @@
 package user;
 
-public class user_information {
+public class User_information {
     private String name;
     private String password;
     private String phone_number;
@@ -13,7 +13,7 @@ public class user_information {
      * @param phone_number
      * @param address
      */
-    public user_information(String name,String password,String phone_number,String address)
+    public User_information(String name, String password, String phone_number, String address)
     {
         this.name = name;
         this.password = password;

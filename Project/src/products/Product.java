@@ -7,8 +7,11 @@ public class Product {
 
     /**
      *
+     * @param name
+     * @param description
+     * @param price
      */
-    public Product()
+    public Product(String name,String description,double price)
     {
         this.name=name;
         this.description=description;

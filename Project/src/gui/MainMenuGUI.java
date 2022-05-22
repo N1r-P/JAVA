@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 
 public class MainMenuGUI extends JPanel {
@@ -28,12 +29,12 @@ public class MainMenuGUI extends JPanel {
     /**
      * Size of the title  in pixels.
      */
-    static private int Goods_Advice_SIZE = 50;
+    static private int Product_Advice_SIZE = 50;
 
     /**
      * Visible rows in catalog list.
      */
-    static private int Goods_Advice_ROWS = 14;
+    static private int Product_Advice_ROWS = 14;
 
     /**
      * Size of the order list cell in pixels.
@@ -69,7 +70,7 @@ public class MainMenuGUI extends JPanel {
     private JLabel searchLabel;
     private JPanel titlePanel;
     private JButton searchButton;
-    private JList<String> goodsAdvice;
+    private JList<String> productAdvice;
     private JTextField searchTextField;
     private JButton sortButton;
     private JButton releaseButton;
@@ -82,9 +83,9 @@ public class MainMenuGUI extends JPanel {
     /**
      * Instantiates the components and arranges them in a window.
      *
-     * @param initialCatalog a product catalog.
+     * @param initialProduct a product Product.
      */
-    public MainMenuGUI(Catalog initialCatalog) {
+    public MainMenuGUI(product initialProduct) {
 
         /**
          * create the components.
@@ -92,10 +93,10 @@ public class MainMenuGUI extends JPanel {
         titleLabel = new JLabel("易圈");
         searchLabel = new JLabel("🔍");
         searchTextField = new JTextField("", SEARCH__TEXTFIELD_SIZE);
-        goodsAdvice = new JList<String>();
-        goodsAdvice.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        goodsAdvice.setVisibleRowCount(Goods_Advice_ROWS);
-        goodsAdvice.setFixedCellWidth(Goods_Advice_SIZE);
+        productAdvice = new JList<String>();
+        productAdvice.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        productAdvice.setVisibleRowCount(Product_Advice_ROWS);
+        productAdvice.setFixedCellWidth(Product_Advice_SIZE);
         searchButton = new JButton("搜索🔍");
         sortButton = new JButton("分类");
         releaseButton = new JButton("发布");
@@ -122,8 +123,8 @@ public class MainMenuGUI extends JPanel {
          * goodsAdvice panel.
          */
         JPanel goodsAdvicePanel = new JPanel();
-        goodsAdvice.setBorder(BorderFactory.createTitledBorder("商品推荐"));
-        goodsAdvice.add(new JScrollPane(goodsAdvice, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+        productAdvice.setBorder(BorderFactory.createTitledBorder("商品/任务推荐"));
+        productAdvice.add(new JScrollPane(productAdvice, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER));
 
         /**
@@ -142,14 +143,13 @@ public class MainMenuGUI extends JPanel {
         centralPanel.add(goodsAdvicePanel, BorderLayout.SOUTH);
 
         /**
-         * below panel.
+         * bottom panel.
          */
-
-        JPanel belowPanel = new JPanel();
-        belowPanel.add(mainMenuButton);
-        belowPanel.add(releaseButton);
-        belowPanel.add(sortButton);
-        belowPanel.add(UserInformationButton);
+        JPanel bottomPanel = new JPanel(new BorderLayout());
+        bottomPanel.add(mainMenuButton,BorderLayout.WEST);
+        bottomPanel.add(releaseButton,BorderLayout.CENTER);
+        bottomPanel.add(sortButton,BorderLayout.CENTER);
+        bottomPanel.add(UserInformationButton,BorderLayout.WEST);
 
 
 
@@ -157,28 +157,26 @@ public class MainMenuGUI extends JPanel {
          * Arrange panels in window.
          */
         setLayout(new BorderLayout());
-        add(catalogPanel, BorderLayout.WEST);
+        add(titlePanel, BorderLayout.NORTH);
         add(centralPanel, BorderLayout.CENTER);
-        add(orderPanel, BorderLayout.EAST);
         add(bottomPanel, BorderLayout.SOUTH);
 
         /**
          * Start listening for list and buttons events.
+         * 监听器检测用户操作并给出反应
          */
-        catalogList.addListSelectionListener(new DisplayProductListener());
-        addModifyButton.addActionListener(new AddModifyListener());
-        removeButton.addActionListener(new RemoveListener());
-        registerSaleButton.addActionListener(new RegisterSaleListener());
-        displaySalesButton.addActionListener(new DisplaySalesListener());
-        saveSalesButton.addActionListener(new SaveSalesListener());
-        plainRadioButton.addActionListener(new PlainListener());
-        HTMLRadioButton.addActionListener(new HTMLListener());
-        XMLRadioButton.addActionListener(new XMLListener());
+        productAdvice.addListSelectionListener(new DisplayProductListener());//要建立函数DisplayProductListener()
+        mainMenuButton.addActionListener(new mainMenuListener());//要建立函数mainMenuListener()
+        releaseButton.addActionListener(new releaseListener());//releaseListener()
+        sortButton.addActionListener(new sortListener());//要建立函数sortListener()
+        UserInformationButton.addActionListener(new UserInformationListener());//要建立函数UserInformationListener()
+        searchButton.addActionListener(new searchListener());//要建立函数searchListener()
+
 
         /**
          * populate the product catalog
          */
-        catalog = initialCatalog;
+        product = initialProduct;
         catalogList.setListData(catalog.getCodes());
 
         currentOrder = new Order();
@@ -187,4 +185,6 @@ public class MainMenuGUI extends JPanel {
         fileChooser = new JFileChooser();
         dollarFormatter = NumberFormat.getCurrencyInstance();
     }
+
+
 }

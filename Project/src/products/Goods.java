@@ -1,6 +1,6 @@
 package products;
 
-public class Goods extends Product_information {
+public class Goods extends Product {
     private String brand;
     private String reason;
     private String origin;
@@ -16,7 +16,7 @@ public class Goods extends Product_information {
      */
     public Goods(String name,String description,double price,String brand,String reason,String origin)
     {
-        super(name,description,price);
+        super();
         this.brand=brand;
         this.reason=reason;
         this.origin=origin;

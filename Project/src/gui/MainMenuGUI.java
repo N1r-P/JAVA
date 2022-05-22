@@ -3,6 +3,10 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.zip.DataFormatException;
+import loader.*;
+import products.*;
+
 
 public class MainMenuGUI extends JPanel {
 
@@ -66,6 +70,7 @@ public class MainMenuGUI extends JPanel {
      */
     static private int STATUS_COLS = 40;
 
+    private  Product product;
     private JLabel titleLabel;
     private JLabel searchLabel;
     private JPanel titlePanel;
@@ -77,7 +82,43 @@ public class MainMenuGUI extends JPanel {
     private JButton UserInformationButton;
     private JButton mainMenuButton;
 
+    /**
+     * Loads a product catalog and starts the application.
+     *
+     * @param args String arguments. Not used.
+     * @throws IOException if there are errors in the loading the catalog.
+     */
+    public static void main(String[] args) throws IOException {
 
+        String filename = "";
+
+        if (args.length != 1) {
+            filename = "product.dat";//建立文件“product.dat"储存商品数据
+        } else {
+            filename = args[0];
+        }
+        try {
+            Product product = (new FileProductLoader()).loadProduct(filename);//创造FileProductLoader()类
+
+            JFrame frame = new JFrame("易~~~~~~~~圈");
+
+            frame.setContentPane(new MainMenuGUI(product));
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(WIDTH, HEIGHT);
+            frame.setResizable(true);
+            frame.setVisible(true);
+
+        } catch (FileNotFoundException fnfe) {
+            stdErr.println("The file does not exist");
+
+            System.exit(1);
+
+        } catch (DataFormatException dfe) {
+            stdErr.println("The file contains malformed data: " + dfe.getMessage());
+
+            System.exit(1);
+        }
+    }
 
 
     /**
@@ -85,7 +126,7 @@ public class MainMenuGUI extends JPanel {
      *
      * @param initialProduct a product Product.
      */
-    public MainMenuGUI(product initialProduct) {
+    public MainMenuGUI(Product initialProduct) {
 
         /**
          * create the components.
@@ -174,16 +215,12 @@ public class MainMenuGUI extends JPanel {
 
 
         /**
-         * populate the product catalog
+         * populate the product advice 填充商品、任务推荐
          */
         product = initialProduct;
-        catalogList.setListData(catalog.getCodes());
+        productAdvice.setListData(Product.getInformation());//在Product中创建方法getInformation()展示商品的全部信息
 
-        currentOrder = new Order();
-        sales = new Sales();
-        salesFormatter = PlainTextSalesFormatter.getSingletonInstance();
-        fileChooser = new JFileChooser();
-        dollarFormatter = NumberFormat.getCurrencyInstance();
+        
     }
 
 

@@ -1,6 +1,6 @@
 package products;
 
-public class Task extends Product_information{
+public class Task extends Product {
     private String time;
     private String remark;
 
@@ -14,7 +14,7 @@ public class Task extends Product_information{
      */
     public Task(String name,String description,double price,String time,String remark)
     {
-        super(name,description,price);
+        super();
         this.time=time;
         this.remark=remark;
     }

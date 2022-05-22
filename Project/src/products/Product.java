@@ -1,17 +1,14 @@
 package products;
 
-public class Product_information {
+public class Product {
     private String name;
     private String description;
     private double price;
 
     /**
      *
-     * @param name
-     * @param description
-     * @param price
      */
-    public Product_information(String name, String description, double price)
+    public Product()
     {
         this.name=name;
         this.description=description;

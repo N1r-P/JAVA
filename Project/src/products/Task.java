@@ -14,7 +14,7 @@ public class Task extends Product {
      */
     public Task(String name,String description,double price,String time,String remark)
     {
-        super(name, description, price);
+        super();
         this.time=time;
         this.remark=remark;
     }

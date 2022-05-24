@@ -2,7 +2,6 @@ package loader;
 
 import java.util.*;
 import java.io.*;
-import java.util.zip.DataFormatException;
 import products.*;
 
 /**
@@ -20,6 +19,28 @@ import products.*;
  */
 
 public class FileProductLoader implements ProductLoader{
+
+    /**
+     * This method reads a line of coffee-accessory data.
+     *
+     * @return a <code>Product</code> object that encapsulates the accessory data.
+     * @throws  <code>DataFormatException</code> that contains the line of
+     *           malformed data.
+     */
+    private Product readProduct(String line) throws DataFormatException {
+
+        StringTokenizer st = new StringTokenizer(line, "_");
+        if (st.countTokens() != 4) {
+            throw new DataFormatException(line);
+        } else {
+            try {
+                st.nextToken();
+                return new Product();
+            } catch (NumberFormatException nfe) {
+                throw new DataFormatException(line);
+            }
+        }
+    }
 
     /**
      * This method reads a line of coffee data.
@@ -69,7 +90,7 @@ public class FileProductLoader implements ProductLoader{
      * This method loads the information in the specified file into a product
      * catalog and returns the catalog.
      *
-     * @return a procuct catalog.
+     * @return a product catalog.
      * @throws <code>FileNotFoundException</code>
      * @throws <code>IOException</code>
      * @throws <code>DataFormatException</code>

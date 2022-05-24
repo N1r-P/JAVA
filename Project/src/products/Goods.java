@@ -16,7 +16,7 @@ public class Goods extends Product {
      */
     public Goods(String name,String description,double price,String brand,String reason,String origin)
     {
-        super(name,description,price);
+        super();
         this.brand=brand;
         this.reason=reason;
         this.origin=origin;

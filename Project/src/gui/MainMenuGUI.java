@@ -1,9 +1,10 @@
 package gui;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.io.*;
-import java.util.zip.DataFormatException;
 import loader.*;
 import products.*;
 
@@ -206,22 +207,96 @@ public class MainMenuGUI extends JPanel {
          * Start listening for list and buttons events.
          * 监听器检测用户操作并给出反应
          */
-        productAdvice.addListSelectionListener(new DisplayProductListener());//要建立函数DisplayProductListener()
+       /* productAdvice.addListSelectionListener(new DisplayProductListener());//要建立函数DisplayProductListener()
         mainMenuButton.addActionListener(new mainMenuListener());//要建立函数mainMenuListener()
         releaseButton.addActionListener(new releaseListener());//releaseListener()
         sortButton.addActionListener(new sortListener());//要建立函数sortListener()
         UserInformationButton.addActionListener(new UserInformationListener());//要建立函数UserInformationListener()
-        searchButton.addActionListener(new searchListener());//要建立函数searchListener()
+        searchButton.addActionListener(new searchListener());//要建立函数searchListener()*/
 
 
         /**
          * populate the product advice 填充商品、任务推荐
          */
         product = initialProduct;
-        productAdvice.setListData(Product.getInformation());//在Product中创建方法getInformation()展示商品的全部信息
+        //productAdvice.setListData(Product.);//在Product中创建方法getInformation()展示商品的全部信息
 
         
     }
 
+
+
+    /**
+     * This inner class handles list-selection events.
+     */
+    class DisplayProductListener implements ListSelectionListener {
+
+        /**
+         * Displays the information of the selected product.
+         *
+         * @param event the event object.
+         */
+        public void valueChanged(ListSelectionEvent event) {
+
+            if (!productList.getValueIsAdjusting()) {
+
+                String code = (String) catalogList.getSelectedValue();
+                Product product = catalog.getProduct(code);
+
+                productPanel.removeAll();
+                productPanel.setVisible(false); // Use this
+                productPanel.add( // to update
+                        getDataFieldsPanel(product.getDataFields())); // the panel
+                productPanel.setVisible(true); // correctly
+
+                statusTextArea.setText("Product " + code + " has been displayed");
+            }
+        }
+
+    }
+
+    /**
+     * This inner class processes <code>addModifyButton</code> events.
+     */
+    class AddModifyListener implements ActionListener {
+
+        /**
+         * Adds an order item to the current order.
+         *
+         * @param event the event object.
+         */
+        public void actionPerformed(ActionEvent event) {
+
+            int quantity = 0;
+            String code = (String) catalogList.getSelectedValue();
+            Product product = catalog.getProduct(code);
+            OrderItem item = currentOrder.getItem(product);
+
+            if (quantityTextField.getText().equals("") || product == null) {
+                statusTextArea.setText("Please select a product code from the catalog list.");
+            } else {
+                try {
+                    quantity = Integer.parseInt(quantityTextField.getText());
+                    if (quantity < 1) {
+                        statusTextArea.setText("Please enter a positive integer.");
+                    } else {
+                        if (item != null) {
+                            item.setQuantity(quantity + item.getQuantity());
+                            orderList.setListData(currentOrder.getItems());
+                            statusTextArea.setText("The Product has been modified.");
+                        } else {
+                            currentOrder.addItem(new OrderItem(product, quantity));
+                            orderList.setListData(currentOrder.getItems());
+                            statusTextArea.setText("The Product has been added.");
+                        }
+                    }
+                } catch (NumberFormatException nfe) {
+                    statusTextArea.setText("Please enter an integer.");
+                }
+            }
+
+            totalTextField.setText(dollarFormatter.format(currentOrder.getTotalCost()));
+        }
+    }
 
 }

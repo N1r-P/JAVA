@@ -20,6 +20,7 @@ public class Product {
         this.price=price;
     }
 
+
     /**
      * get the name of the product
      * @return name
@@ -42,6 +43,9 @@ public class Product {
      * A vector of <code>Product</code>.
      */
     private Vector<Product> products;
+    public Product() {
+        products = new Vector<Product>();
+    }
 
     /**
      * Add the specified product to the vector products.

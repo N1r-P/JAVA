@@ -5,7 +5,7 @@ public class Task extends Product {
     private String remark;
 
     /**
-     *
+     * initialize the property
      * @param name
      * @param description
      * @param price
@@ -14,7 +14,7 @@ public class Task extends Product {
      */
     public Task(String name,String description,double price,String time,String remark)
     {
-        super();
+        super(name, description, price);
         this.time=time;
         this.remark=remark;
     }

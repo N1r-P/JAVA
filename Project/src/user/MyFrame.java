@@ -231,7 +231,6 @@ public class MyFrame extends JFrame {
                         if (a == JOptionPane.YES_OPTION) {
                             JFrame anotherJFrame = new AnotherFrame(strings.get(0), strings.get(1), strings.get(2), strings.get(3), strings.get(4));
                             anotherJFrame.setVisible(true);
-                            setVisible(false);
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Please ensure you have checked all the checkbox!", null, JOptionPane.WARNING_MESSAGE);
@@ -259,7 +258,7 @@ public class MyFrame extends JFrame {
         buttonExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
-                System.exit(0);
+                dispose();
             }
         });
     }

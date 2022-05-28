@@ -2,9 +2,13 @@ package mainMenu;
 
 
 import javax.swing.*;
+import java.awt.Color;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
-import products.*;
+import user.Mygui;
+
 import java.util.ArrayList;
 import javax.swing.border.Border;
 
@@ -47,25 +51,27 @@ public class MainMenuGUI extends JFrame {
          */
         titleLabel = new JLabel("             Easy   Circle");
         buttonSearch = new JButton("Search🔍");
-        buttonSearch.setBounds(40, 30, 100, 25);
         searchTextField = new JTextArea("", 5,10);
-
-        //productAdvice = new JList<String>();
-        /*productAdvice.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        /*productAdvice = new JList<String>();
+        productAdvice.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         productAdvice.setVisibleRowCount(Product_Advice_ROWS);
         productAdvice.setFixedCellWidth(Product_Advice_SIZE);*/
-
         buttonSort = new JButton("分类");
-        buttonSort.setBounds(40, 30, 100, 25);
         buttonRelease = new JButton("发布");
         buttonUserInformation = new JButton("我的");
         buttonMainMenu = new JButton("主界面");
+
+        buttonSort.setBackground(Color.WHITE);//按钮的背景色
+        buttonRelease.setBackground(Color.WHITE);//按钮的背景色
+        buttonSearch.setBackground(Color.WHITE);//按钮的背景色
+        buttonUserInformation.setBackground(Color.WHITE);//按钮的背景色
+        buttonMainMenu.setBackground(Color.WHITE);//按钮的背景色
 
 
         /**
          * title panel.标题区
          */
-        JPanel titlePanel = new JPanel(new GridLayout(3, 10));
+        JPanel titlePanel = new JPanel(new GridLayout(1, 10));
         titlePanel.setBorder(BorderFactory.createTitledBorder("转易圈~"));
         Font x = new Font("Arial", Font.BOLD, 25);
         titleLabel.setFont(x);//Set the font in the JLabel.
@@ -74,7 +80,7 @@ public class MainMenuGUI extends JFrame {
         /**
          * search panel.搜索区
          */
-        JPanel searchPanel = new JPanel(new GridLayout(2, 10));
+        JPanel searchPanel = new JPanel(new GridLayout(1, 10));
         searchPanel.setBorder(BorderFactory.createTitledBorder("搜一下~"));
         searchPanel.add(searchTextField,BorderLayout.WEST);
         searchPanel.add(buttonSearch,BorderLayout.EAST);
@@ -82,7 +88,7 @@ public class MainMenuGUI extends JFrame {
         /**
          * goodsAdvice panel.商品推荐区
          */
-        JPanel goodsAdvicePanel = new JPanel(new GridLayout(10, 10));
+        JPanel goodsAdvicePanel = new JPanel(new BorderLayout(100,100));
         goodsAdvicePanel.setBorder(BorderFactory.createTitledBorder("看一会~"));
         //productAdvice.setBorder(BorderFactory.createTitledBorder("商品/任务推荐"));
         /*productAdvice.add(new JScrollPane(productAdvice, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
@@ -92,7 +98,7 @@ public class MainMenuGUI extends JFrame {
         /**
          * central panel.
          */
-        JPanel centralPanel = new JPanel(new BorderLayout());
+        JPanel centralPanel = new JPanel(new BorderLayout(10,100));
         centralPanel.add(searchPanel, BorderLayout.CENTER);
         centralPanel.add(goodsAdvicePanel, BorderLayout.SOUTH);
 
@@ -100,10 +106,17 @@ public class MainMenuGUI extends JFrame {
          * bottom panel.
          */
         JPanel bottomPanel = new JPanel(new GridLayout(1, 4,10,0));
+        bottomPanel.setBorder(BorderFactory.createTitledBorder("底部菜单栏~"));
         bottomPanel.add(buttonMainMenu,BorderLayout.WEST);
         bottomPanel.add(buttonRelease,BorderLayout.CENTER);
         bottomPanel.add(buttonSort,BorderLayout.CENTER);
         bottomPanel.add(buttonUserInformation,BorderLayout.EAST);
+
+        buttonMainMenu.setPreferredSize(new Dimension(10, 10));
+        buttonRelease.setPreferredSize(new Dimension(10, 10));
+        buttonSort.setPreferredSize(new Dimension(10, 10));
+        buttonUserInformation.setPreferredSize(new Dimension(10, 10));
+
 
         /**
          * Arrange panels in window.
@@ -126,44 +139,30 @@ public class MainMenuGUI extends JFrame {
          * 监听器检测用户操作并给出反应
          */
 
-       /* buttonMainMenu.addActionListener(new ActionListener() {
+        buttonMainMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MainFrame f = new MainFrame();
+                MainMenuGUI f = new MainMenuGUI();
                 f.setVisible(true);
             }
-
         });
-
-
-
         buttonRelease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainFrame f = new MainFrame();
                 f.setVisible(true);
             }
-
         });
         buttonSort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainFrame f = new MainFrame();
                 f.setVisible(true);
             }
-
         });
         buttonUserInformation.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MainFrame f = new MainFrame();
-                f.setVisible(true);
+                Mygui mygui = new Mygui();
+                mygui.setVisible(true);
             }
-
         });
-        buttonRelease.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                MainFrame f = new MainFrame();
-                f.setVisible(true);
-            }
-
-        });*/
 
     }
 

@@ -7,9 +7,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+
+import products.Classify;
+import products.Post;
+import products.ProductPost;
 import user.Mygui;
 
-import java.util.ArrayList;
 import javax.swing.border.Border;
 
 public class MainMenuGUI extends JFrame {
@@ -147,13 +150,15 @@ public class MainMenuGUI extends JFrame {
         });
         buttonRelease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MainFrame f = new MainFrame();
-                f.setVisible(true);
+                dispose();
+                Post post = new Post();
+                post.setVisible(true);
             }
         });
         buttonSort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MainFrame f = new MainFrame();
+                dispose();
+                Classify f = new Classify();
                 f.setVisible(true);
             }
         });

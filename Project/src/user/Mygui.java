@@ -54,6 +54,7 @@ public class Mygui extends JFrame{
 
         buttonRegister.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 MyFrame f = new MyFrame();
                 f.setVisible(true);
             }

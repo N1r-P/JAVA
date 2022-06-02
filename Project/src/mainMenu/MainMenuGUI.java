@@ -1,19 +1,15 @@
 package mainMenu;
 
 
+import products.Classify;
+import products.Post;
+import user.Mygui;
+
 import javax.swing.*;
-import java.awt.Color;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-
-import products.Classify;
-import products.Post;
-import products.ProductPost;
-import user.Mygui;
-
-import javax.swing.border.Border;
+import java.io.PrintWriter;
 
 public class MainMenuGUI extends JFrame {
 
@@ -31,101 +27,93 @@ public class MainMenuGUI extends JFrame {
      * Window width&height in pixels.
      */
     static private int WIDTH = 360;
-    static private int HEIGHT = 640;
+    static private int HEIGHT = 740;
 
-    /**
-     * Size&rows of the title  in pixels.
-     */
-    static private int Product_Advice_SIZE = 50;
-    static private int Product_Advice_ROWS = 14;
+
 
     private JLabel titleLabel;
     private JPanel integration;
-    private JList productAdvice;
-    private JTextArea searchTextField;
-    private JButton buttonMainMenu,buttonSearch,buttonSort, buttonRelease, buttonUserInformation;
-    private Border lineBorderBlack, lineBorderRed;
+    private JButton buttonSort, buttonRelease, buttonUserInformation ,
+                    buttonAdvice1,buttonAdvice2,buttonAdvice3,buttonAdvice4;
+
 
     public MainMenuGUI() {
-        super("Main");//Using the construction method of the parent class.
+        super("易圈");//Using the construction method of the parent class.
 
         /**
          * create the components.组成原件
          */
-        titleLabel = new JLabel("             Easy   Circle");
-        buttonSearch = new JButton("Search🔍");
-        searchTextField = new JTextArea("", 5,10);
-        /*productAdvice = new JList<String>();
-        productAdvice.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        productAdvice.setVisibleRowCount(Product_Advice_ROWS);
-        productAdvice.setFixedCellWidth(Product_Advice_SIZE);*/
+        titleLabel = new JLabel("          Easy         Circle");
+        buttonAdvice1 = new JButton("二手HUAWEA路由器");
+        buttonAdvice2 = new JButton("二手晾衣架");
+        buttonAdvice3 = new JButton("代签到");
+        buttonAdvice4 = new JButton("跑腿买饭");
         buttonSort = new JButton("分类");
         buttonRelease = new JButton("发布");
         buttonUserInformation = new JButton("我的");
-        buttonMainMenu = new JButton("主界面");
 
-        buttonSort.setBackground(Color.WHITE);//按钮的背景色
-        buttonRelease.setBackground(Color.WHITE);//按钮的背景色
-        buttonSearch.setBackground(Color.WHITE);//按钮的背景色
-        buttonUserInformation.setBackground(Color.WHITE);//按钮的背景色
-        buttonMainMenu.setBackground(Color.WHITE);//按钮的背景色
+        buttonAdvice1.setBackground(Color.ORANGE);//advice1按钮橙色
+        buttonAdvice2.setBackground(Color.PINK);//advice2按钮橙色
+        buttonAdvice3.setBackground(Color.GREEN);//advice3按钮绿色
+        buttonAdvice4.setBackground(Color.YELLOW);//advice3按钮绿色
+        buttonSort.setBackground(Color.WHITE);//分类按钮白色
+        buttonRelease.setBackground(Color.WHITE);//发布按钮白色
+        buttonUserInformation.setBackground(Color.WHITE);//用户按钮白色
+        buttonAdvice1.setPreferredSize(new Dimension(100, 115));
+        buttonAdvice2.setPreferredSize(new Dimension(100, 115));
+        buttonAdvice3.setPreferredSize(new Dimension(100, 115));
+        buttonAdvice4.setPreferredSize(new Dimension(100, 115));
+        buttonRelease.setPreferredSize(new Dimension(100, 100));
+        buttonSort.setPreferredSize(new Dimension(100, 100));
+        buttonUserInformation.setPreferredSize(new Dimension(100, 100));
 
 
         /**
          * title panel.标题区
          */
-        JPanel titlePanel = new JPanel(new GridLayout(1, 10));
+        JPanel titlePanel = new JPanel(new BorderLayout(1,1));
         titlePanel.setBorder(BorderFactory.createTitledBorder("转易圈~"));
         Font x = new Font("Arial", Font.BOLD, 25);
         titleLabel.setFont(x);//Set the font in the JLabel.
         titlePanel.add(titleLabel,BorderLayout.NORTH);
 
-        /**
-         * search panel.搜索区
-         */
-        JPanel searchPanel = new JPanel(new GridLayout(1, 10));
-        searchPanel.setBorder(BorderFactory.createTitledBorder("搜一下~"));
-        searchPanel.add(searchTextField,BorderLayout.WEST);
-        searchPanel.add(buttonSearch,BorderLayout.EAST);
+
 
         /**
          * goodsAdvice panel.商品推荐区
          */
-        JPanel goodsAdvicePanel = new JPanel(new BorderLayout(100,100));
-        goodsAdvicePanel.setBorder(BorderFactory.createTitledBorder("看一会~"));
-        //productAdvice.setBorder(BorderFactory.createTitledBorder("商品/任务推荐"));
-        /*productAdvice.add(new JScrollPane(productAdvice, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-                          JScrollPane.HORIZONTAL_SCROLLBAR_NEVER));*/
+        JPanel goodsAdvicePanel = new JPanel(new BorderLayout(10,10));
+        goodsAdvicePanel.add(buttonAdvice1,BorderLayout.NORTH);
+        goodsAdvicePanel.add(buttonAdvice2,BorderLayout.CENTER);
+        goodsAdvicePanel.add(buttonAdvice3,BorderLayout.SOUTH);
 
 
         /**
          * central panel.
          */
-        JPanel centralPanel = new JPanel(new BorderLayout(10,100));
-        centralPanel.add(searchPanel, BorderLayout.CENTER);
-        centralPanel.add(goodsAdvicePanel, BorderLayout.SOUTH);
+        JPanel centralPanel = new JPanel(new BorderLayout(10,10));
+        centralPanel.setBorder(BorderFactory.createTitledBorder("看一会~"));
+        centralPanel.add(goodsAdvicePanel, BorderLayout.CENTER);
+        centralPanel.add(buttonAdvice4,BorderLayout.SOUTH);
 
         /**
          * bottom panel.
          */
-        JPanel bottomPanel = new JPanel(new GridLayout(1, 4,10,0));
+        JPanel bottomPanel = new JPanel(new BorderLayout(10,10));
         bottomPanel.setBorder(BorderFactory.createTitledBorder("底部菜单栏~"));
-        bottomPanel.add(buttonMainMenu,BorderLayout.WEST);
-        bottomPanel.add(buttonRelease,BorderLayout.CENTER);
+        bottomPanel.add(buttonRelease,BorderLayout.WEST);
         bottomPanel.add(buttonSort,BorderLayout.CENTER);
         bottomPanel.add(buttonUserInformation,BorderLayout.EAST);
 
-        buttonMainMenu.setPreferredSize(new Dimension(10, 10));
-        buttonRelease.setPreferredSize(new Dimension(10, 10));
-        buttonSort.setPreferredSize(new Dimension(10, 10));
-        buttonUserInformation.setPreferredSize(new Dimension(10, 10));
+
+
 
 
         /**
          * Arrange panels in window.
          */
         integration = new JPanel();
-        integration.setLayout(new GridLayout(3, 15));//Using GridLayout to arrange the GUI components
+        integration.setLayout(new BorderLayout(1,1));
         integration.add(titlePanel, BorderLayout.NORTH);
         integration.add(centralPanel, BorderLayout.CENTER);
         integration.add(bottomPanel, BorderLayout.SOUTH);
@@ -141,11 +129,28 @@ public class MainMenuGUI extends JFrame {
          * Start listening for list and buttons events.
          * 监听器检测用户操作并给出反应
          */
-
-        buttonMainMenu.addActionListener(new ActionListener() {
+        buttonAdvice1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MainMenuGUI f = new MainMenuGUI();
-                f.setVisible(true);
+                ProductDetail p1 = new ProductDetail("二手HUAWEA路由器");
+                p1.setVisible(true);
+            }
+        });
+        buttonAdvice2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ProductDetail p2 = new ProductDetail("二手晾衣架");
+                p2.setVisible(true);
+            }
+        });
+        buttonAdvice3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ProductDetail p3 = new ProductDetail("代签到");
+                p3.setVisible(true);
+            }
+        });
+        buttonAdvice4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ProductDetail p4 = new ProductDetail("跑腿买饭");
+                p4.setVisible(true);
             }
         });
         buttonRelease.addActionListener(new ActionListener() {

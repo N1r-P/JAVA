@@ -1,11 +1,13 @@
 package user;
 
 import mainMenu.MainMenuGUI;
+import products.ProductsDisplay;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class Mygui extends JFrame{
     private JPanel p, p1, p2, p3, p4, p5, p6;
@@ -86,12 +88,44 @@ public class Mygui extends JFrame{
             }
         });
 
+        buttonPI.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<String> strings = new ArrayList<String>();
+                strings.add("姓名 : " );
+                strings.add("生日 : " );
+                strings.add("地址 : " );
+                strings.add("电话 : " );
+                strings.add("密码 : " );
+                dispose();
+                JFrame information = new Information(strings.get(0), strings.get(1), strings.get(2), strings.get(3), strings.get(4));
+                information.setVisible(true);
+            }
+        });
+
         buttonBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
                 MainMenuGUI mainMenugui = new MainMenuGUI();
                 mainMenugui.setVisible(true);
+            }
+        });
+
+        buttonSold.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                SoldAndBought f = new SoldAndBought();
+                f.setVisible(true);
+            }
+        });
+
+        buttonBought.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                SoldAndBought f = new SoldAndBought();
+                f.setVisible(true);
             }
         });
     }

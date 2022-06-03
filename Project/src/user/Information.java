@@ -7,12 +7,13 @@ import javax.swing.*;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * This class is the another frame and contains some components of the application.
  */
 
-public class AnotherFrame extends JFrame {
+public class Information extends JFrame {
 
     JLabel northJLabel;
     JPanel p, centerJPanel, southJPanel;
@@ -23,10 +24,10 @@ public class AnotherFrame extends JFrame {
      * This method is the construction method of the class MyFrame.
      */
 
-    public AnotherFrame(String string0, String string1, String string2, String string3, String string4){
-        super("注册成功！");
+    public Information(String string0, String string1, String string2, String string3, String string4){
+        super("您的信息");
         p = new JPanel(new BorderLayout());
-        northJLabel = new JLabel("您已注册成功", JLabel.CENTER);
+        northJLabel = new JLabel("您的基本信息", JLabel.CENTER);
         p.add(northJLabel, BorderLayout.NORTH);
 
         centerJPanel = new JPanel();
@@ -63,8 +64,8 @@ public class AnotherFrame extends JFrame {
         southJButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 dispose();
-                MainMenuGUI mainMenugui = new MainMenuGUI();
-                mainMenugui.setVisible(true);
+                Mygui m = new Mygui();
+                m.setVisible(true);
             }
         });
     }

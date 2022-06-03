@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Log extends JFrame{
     private JPanel p, p1, p2, p3, p4, p5, p6, p7, p8;
     private JTextArea phoneJTextArea, passwordJTextArea;
-    private JButton buttonLog;
+    private JButton buttonLog,buttonBack;
     private JLabel titleJLabel;
     private Border lineBorderBlack;
 
@@ -50,8 +50,11 @@ public class Log extends JFrame{
         p4 = new JPanel();
         p4.setBorder(BorderFactory.createTitledBorder("登录"));
         buttonLog = new JButton("登录");
+        buttonBack = new JButton("返回");
         p4.setLayout(null);
-        buttonLog.setBounds(125,40,100,40);
+        buttonLog.setBounds(50,40,100,40);
+        buttonBack.setBounds(200,40,100,40);
+        p4.add(buttonBack);
         p4.add(buttonLog);
 
         p.add(p1);
@@ -74,6 +77,15 @@ public class Log extends JFrame{
                     MainMenuGUI mainMenugui = new MainMenuGUI();
                     mainMenugui.setVisible(true);
                 }
+            }
+        });
+
+        buttonBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                MainMenuGUI mainMenugui = new MainMenuGUI();
+                mainMenugui.setVisible(true);
             }
         });
     }

@@ -1,5 +1,7 @@
 package products;
 
+import mainMenu.MainMenuGUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -7,7 +9,7 @@ import java.awt.event.ActionEvent;
 
 public class Post extends JFrame {
     private JPanel p,p1,p2;
-    private JButton buttonProduct, buttonTask;
+    private JButton buttonProduct, buttonTask,buttonBack;
 
     public Post(){
         super("发布");
@@ -24,9 +26,12 @@ public class Post extends JFrame {
         p2 = new JPanel();
         p2.setBorder(BorderFactory.createLoweredBevelBorder());
         buttonTask = new JButton("发布任务");
+        buttonBack = new JButton("返回");
         p2.setLayout(null);
         buttonTask.setBounds(35, 45, 100, 40);
+        buttonBack.setBounds(114,121,60,25);
         p2.add(buttonTask);
+        p2.add(buttonBack);
 
         p.add(p1);
         p.add(p2);
@@ -52,7 +57,14 @@ public class Post extends JFrame {
             }
         });
 
-
+        buttonBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                MainMenuGUI mainMenugui = new MainMenuGUI();
+                mainMenugui.setVisible(true);
+            }
+        });
     }
 
 }

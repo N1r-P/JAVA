@@ -1,5 +1,7 @@
 package products;
 
+import mainMenu.MainMenuGUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -7,7 +9,7 @@ import java.awt.event.ActionEvent;
 
 public class Classify extends JFrame {
     private JPanel p,p1,p2;
-    private JButton button1, button2,button3,button4,button5,button6,button7,button8,button9,button10,button11;
+    private JButton button1, button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,buttonBack;
 
     public Classify(){
         super("商品分类");
@@ -46,15 +48,27 @@ public class Classify extends JFrame {
         button9 = new JButton("借东西");
         button10 = new JButton("代排队");
         button11 = new JButton("其他");
+        buttonBack = new JButton("返回");
         p2.setLayout(null);
         button8.setBounds(35, 35, 100, 40);
         button9.setBounds(35, 85, 100, 40);
         button10.setBounds(200, 35, 100, 40);
         button11.setBounds(200, 85, 100, 40);
+        buttonBack.setBounds(120,200,100,40);
         p2.add(button8);
         p2.add(button9);
         p2.add(button10);
         p2.add(button11);
+        p2.add(buttonBack);
+
+        buttonBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                MainMenuGUI mainMenugui = new MainMenuGUI();
+                mainMenugui.setVisible(true);
+            }
+        });
 
         p.add(p1);
         p.add(p2);

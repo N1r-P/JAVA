@@ -1,5 +1,7 @@
 package user;
 
+import mainMenu.MainMenuGUI;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -259,6 +261,8 @@ public class MyFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
+                MainMenuGUI mainMenugui = new MainMenuGUI();
+                mainMenugui.setVisible(true);
             }
         });
     }

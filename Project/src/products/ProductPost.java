@@ -110,7 +110,14 @@ public class ProductPost extends JFrame{
 
         buttonPost.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "发布成功！", null, JOptionPane.WARNING_MESSAGE);
+                Object[] options = {"确定"};
+                int result= JOptionPane.showOptionDialog(null,"发布成功！！","提示",JOptionPane.INFORMATION_MESSAGE,JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
+                if(result==0)
+                {
+                    dispose();
+                    MainMenuGUI mainMenugui = new MainMenuGUI();
+                    mainMenugui.setVisible(true);
+                }
             }
         });
 

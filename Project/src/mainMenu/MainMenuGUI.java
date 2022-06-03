@@ -169,6 +169,7 @@ public class MainMenuGUI extends JFrame {
         });
         buttonUserInformation.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 Mygui mygui = new Mygui();
                 mygui.setVisible(true);
             }

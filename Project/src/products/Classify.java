@@ -70,6 +70,105 @@ public class Classify extends JFrame {
             }
         });
 
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button9.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
+        button11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // To exit the program.
+                dispose();
+                ProductsDisplay f = new ProductsDisplay();
+                f.setVisible(true);
+            }
+        });
+
         p.add(p1);
         p.add(p2);
         this.add(p);

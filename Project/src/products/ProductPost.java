@@ -108,6 +108,7 @@ public class ProductPost extends JFrame{
         this.setResizable(false);// Set the form of the window not to change size.
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
         buttonPost.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Object[] options = {"确定"};

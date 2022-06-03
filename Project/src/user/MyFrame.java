@@ -259,8 +259,8 @@ public class MyFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                MainMenuGUI mainMenugui = new MainMenuGUI();
-                mainMenugui.setVisible(true);
+                Mygui mygui = new Mygui();
+                mygui.setVisible(true);
             }
         });
     }

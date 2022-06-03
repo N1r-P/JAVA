@@ -30,27 +30,25 @@ public class MyFrame extends JFrame {
      * This method is the construction method of the class MyFrame
      */
     public MyFrame() {
-        super("Register");//Using the construction method of the parent class.
+        super("注册");//Using the construction method of the parent class.
         p = new JPanel();
         p.setLayout(new GridLayout(8, 1));//Using GridLayout to arrange the GUI components
 
         p1 = new JPanel(new BorderLayout());
-        titleJLabel = new JLabel("Please complete the information below: ", JLabel.CENTER);//Let the JLabel be in the center.
-        Font fnt = new Font("Arial", Font.BOLD, 14);
-        titleJLabel.setFont(fnt);//Set the font in the JLabel.
+        titleJLabel = new JLabel("请填写以下信息: ", JLabel.CENTER);//Let the JLabel be in the center.
         p1.add(titleJLabel, BorderLayout.CENTER);//Let the JLabel be in the center.
 
         p2 = new JPanel();
-        p2.setBorder(BorderFactory.createTitledBorder("Name"));//Use createTitledBorder() method to set the border of JPanel.
+        p2.setBorder(BorderFactory.createTitledBorder("名字"));//Use createTitledBorder() method to set the border of JPanel.
         Color bgColor = new Color(255, 255, 255);
         lineBorderBlack = BorderFactory.createLineBorder(Color.black, 2);
         JPanel p2_1 = new JPanel();//This JPanel is the second level JPanel in JPanel p2
-        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "First Name"));//Composite border
+        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "姓"));//Composite border
         p2_1.setBackground(bgColor);//Set background color of the JPanel
         firstNameJTextArea = new JTextArea("", 1, 10);
         p2_1.add(firstNameJTextArea);
         JPanel p2_2 = new JPanel();//This JPanel is the second level JPanel in JPanel p2
-        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "Surname"));
+        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "名"));
         p2_2.setBackground(bgColor);
         surnameJTextArea = new JTextArea("", 1, 10);
         p2_2.add(surnameJTextArea);
@@ -58,26 +56,26 @@ public class MyFrame extends JFrame {
         p2.add(p2_2);//Add the second level JPanel p2_2 into JPanel p2
 
         p3 = new JPanel();
-        p3.setBorder(BorderFactory.createTitledBorder("Date of Birth"));//Use createTitledBorder() method to set the border of JPanel.
+        p3.setBorder(BorderFactory.createTitledBorder("生日"));//Use createTitledBorder() method to set the border of JPanel.
         JPanel p3_1 = new JPanel();
-        p3_1.setBorder(BorderFactory.createTitledBorder("Month"));
+        p3_1.setBorder(BorderFactory.createTitledBorder("月份"));
         doBMonthJComboBox = new JComboBox<String>();//Declare the variable types of JComboBox.
         doBMonthJComboBox.addItem(new String("---"));//Set Index 0.
-        doBMonthJComboBox.addItem(new String("January"));
-        doBMonthJComboBox.addItem(new String("February"));
-        doBMonthJComboBox.addItem(new String("March"));
-        doBMonthJComboBox.addItem(new String("April"));
-        doBMonthJComboBox.addItem(new String("May"));
-        doBMonthJComboBox.addItem(new String("June"));
-        doBMonthJComboBox.addItem(new String("July"));
-        doBMonthJComboBox.addItem(new String("August"));
-        doBMonthJComboBox.addItem(new String("September"));
-        doBMonthJComboBox.addItem(new String("October"));
-        doBMonthJComboBox.addItem(new String("November"));
-        doBMonthJComboBox.addItem(new String("December"));
+        doBMonthJComboBox.addItem(new String("一月"));
+        doBMonthJComboBox.addItem(new String("二月"));
+        doBMonthJComboBox.addItem(new String("三月"));
+        doBMonthJComboBox.addItem(new String("四月"));
+        doBMonthJComboBox.addItem(new String("五月"));
+        doBMonthJComboBox.addItem(new String("六月"));
+        doBMonthJComboBox.addItem(new String("七月"));
+        doBMonthJComboBox.addItem(new String("八月"));
+        doBMonthJComboBox.addItem(new String("九月"));
+        doBMonthJComboBox.addItem(new String("十月"));
+        doBMonthJComboBox.addItem(new String("十一月"));
+        doBMonthJComboBox.addItem(new String("十二月"));
         p3_1.add(doBMonthJComboBox);
         JPanel p3_2 = new JPanel();
-        p3_2.setBorder(BorderFactory.createTitledBorder("Year"));
+        p3_2.setBorder(BorderFactory.createTitledBorder("年份"));
         doBYearJComboBox = new JComboBox<String>();//Declare the variable types of JComboBox.
         doBYearJComboBox.addItem(new String("---"));
         doBYearJComboBox.addItem(new String("1991"));
@@ -100,7 +98,7 @@ public class MyFrame extends JFrame {
         p3.add(p3_2);
 
         p4 = new JPanel();
-        p4.setBorder(BorderFactory.createTitledBorder("Address"));
+        p4.setBorder(BorderFactory.createTitledBorder("地址"));
         JPanel p4_1 = new JPanel(new GridLayout(1, 1));
         p4_1.setBorder(BorderFactory.createLoweredBevelBorder());//Use createLoweredBevelBorder() method to get embedded border.
         p4_1.setBackground(bgColor);
@@ -109,7 +107,7 @@ public class MyFrame extends JFrame {
         p4.add(p4_1);
 
         p5 = new JPanel();
-        p5.setBorder(BorderFactory.createTitledBorder("Phone number"));
+        p5.setBorder(BorderFactory.createTitledBorder("电话"));
         JPanel p5_1 = new JPanel(new GridLayout(1, 1));
         p5_1.setBorder(BorderFactory.createLoweredBevelBorder());//Use createLoweredBevelBorder() method to get embedded border.
         p5_1.setBackground(bgColor);
@@ -118,7 +116,7 @@ public class MyFrame extends JFrame {
         p5.add(p5_1);
 
         p6 = new JPanel();
-        p6.setBorder(BorderFactory.createTitledBorder("Password"));
+        p6.setBorder(BorderFactory.createTitledBorder("密码"));
         JPanel p6_1 = new JPanel(new GridLayout(1, 1));
         p6_1.setBorder(BorderFactory.createLoweredBevelBorder());
         p6_1.setBackground(bgColor);
@@ -128,16 +126,16 @@ public class MyFrame extends JFrame {
 
         p7 = new JPanel();
         p7.setBorder(BorderFactory.createEtchedBorder());//Use createEtchedBorder() method to get no title border.
-        checkBox1 = new JCheckBox("I have read and agree to the terms and conditions.");
-        checkBox2 = new JCheckBox("I confirm that the information provided is correct.");
+        checkBox1 = new JCheckBox("我已阅读并同意用户协议和隐私政策");
+        checkBox2 = new JCheckBox("我确认以上信息均正确");
         p7.add(checkBox1);
         p7.add(checkBox2);
 
         p8 = new JPanel();
         p8.setBorder(BorderFactory.createLoweredBevelBorder());
-        buttonNextstep = new JButton("Next step");
-        buttonClear = new JButton("Clear");
-        buttonExit = new JButton("Exit");
+        buttonNextstep = new JButton("下一步");
+        buttonClear = new JButton("清空");
+        buttonExit = new JButton("返回");
         /**
          * Let the Layout invalid and set the buttons' position with setBounds() method.
          */
@@ -169,59 +167,59 @@ public class MyFrame extends JFrame {
         buttonNextstep.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> strings = new ArrayList<String>();
-                strings.add("Full name : " + firstNameJTextArea.getText() + " " + surnameJTextArea.getText());
-                strings.add("Date of birth : " + doBMonthJComboBox.getSelectedItem() + " " + doBYearJComboBox.getSelectedItem());
-                strings.add("Address : " + addressJTextArea.getText());
-                strings.add("Phone number : " + phoneJTextArea.getText());
-                strings.add("Password : " + passwordJTextArea.getText());
+                strings.add("姓名 : " + firstNameJTextArea.getText() + " " + surnameJTextArea.getText());
+                strings.add("生日 : " + doBMonthJComboBox.getSelectedItem() + " " + doBYearJComboBox.getSelectedItem());
+                strings.add("地址 : " + addressJTextArea.getText());
+                strings.add("电话 : " + phoneJTextArea.getText());
+                strings.add("密码 : " + passwordJTextArea.getText());
                 //Use this if else to determine whether JPanel is empty or not.
                 if (firstNameJTextArea.getText().equals("") || surnameJTextArea.getText().equals("") || doBMonthJComboBox.getSelectedIndex() == 0 || doBYearJComboBox.getSelectedIndex() == 0
                         || addressJTextArea.getText().equals("") || phoneJTextArea.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Please fill in the missing information", null, JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "请将信息填写完整", null, JOptionPane.WARNING_MESSAGE);
                     lineBorderRed = BorderFactory.createLineBorder(Color.RED, 2);
                     /**
                      * Below are many if else to check whether user fill this text or not, and
                      * change the border into lineBorderRed.
                      */
                     if (firstNameJTextArea.getText().equals("")) {
-                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "First Name"));
+                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "姓"));
                     } else {
-                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "First Name"));
+                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "姓"));
                     }
 
                     if (surnameJTextArea.getText().equals("")) {
-                        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "surname"));
+                        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "名"));
                     } else {
-                        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "surname"));
+                        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "名"));
                     }
 
                     if (doBMonthJComboBox.getSelectedIndex() == 0) {
-                        p3_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "Month"));
+                        p3_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "月份"));
                     } else {
-                        p3_1.setBorder(BorderFactory.createTitledBorder("Month"));
+                        p3_1.setBorder(BorderFactory.createTitledBorder("月份"));
                     }
 
                     if (doBYearJComboBox.getSelectedIndex() == 0) {
-                        p3_2.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "Year"));
+                        p3_2.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "年份"));
                     } else {
-                        p3_2.setBorder(BorderFactory.createTitledBorder("Year"));
+                        p3_2.setBorder(BorderFactory.createTitledBorder("年份"));
                     }
 
                     if (addressJTextArea.getText().equals("")) {
-                        p4_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "Address"));
+                        p4_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "地址"));
                         addressJTextArea.setSize(100, 10);
                     } else {
                         p4_1.setBorder(BorderFactory.createLoweredBevelBorder());
                     }
 
                     if (phoneJTextArea.getText().equals("")) {
-                        p5_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "Phone number"));
+                        p5_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "电话"));
                     } else {
                         p5_1.setBorder(BorderFactory.createLoweredBevelBorder());
                     }
 
                     if (passwordJTextArea.getText().equals("")) {
-                        p6_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "Password"));
+                        p6_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "密码"));
                     } else {
                         p6_1.setBorder(BorderFactory.createLoweredBevelBorder());
                     }
@@ -229,13 +227,13 @@ public class MyFrame extends JFrame {
                 // If no JPanel is empty, then enter into another frame.
                 else {
                     if (checkBox1.isSelected() && checkBox2.isSelected()) {
-                        int a = JOptionPane.showConfirmDialog(null, "Have you checked all the information is correct? You can't change the information once the information is submitted", "Confirm check in?", JOptionPane.YES_NO_OPTION);
+                        int a = JOptionPane.showConfirmDialog(null, "你是否已经检查过所有信息? 信息提交后你将无法再修改", "确认提交?", JOptionPane.YES_NO_OPTION);
                         if (a == JOptionPane.YES_OPTION) {
                             JFrame anotherJFrame = new AnotherFrame(strings.get(0), strings.get(1), strings.get(2), strings.get(3), strings.get(4));
                             anotherJFrame.setVisible(true);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Please ensure you have checked all the checkbox!", null, JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "请确保您已勾选所有复选框!", null, JOptionPane.WARNING_MESSAGE);
                     }
 
                 }

@@ -27,7 +27,7 @@ public class ProductDetail extends JFrame {
 
         //三个组件
         textArea = new TextArea();
-        exitButton = new JButton("返回");
+        exitButton = new JButton("退出");
         buyButton = new JButton("购买");
 
         //更新文本显示区内容
@@ -45,12 +45,11 @@ public class ProductDetail extends JFrame {
 
 
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 buy a=new buy();
                 a.setVisible(true);
             }
         });
-
-
 
         //装填三个组件
         container.add(textArea);
@@ -76,7 +75,7 @@ public class ProductDetail extends JFrame {
         this.add(p);
         this.setSize(300,180);
         this.setLocation(400, 350);
-        //this.setResizable(true);
+        this.setResizable(false);
 
     }
 

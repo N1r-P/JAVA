@@ -137,13 +137,13 @@ public class MyFrame extends JFrame {
         buttonNextstep.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> strings = new ArrayList<String>();
-                strings.add("姓名 : " + firstNameJTextArea.getText() + " " + surnameJTextArea.getText());
-                strings.add("年级 : " + doBMonthJComboBox.getSelectedItem() + " " + doBYearJComboBox.getSelectedItem());
+                strings.add("姓名 : " + firstNameJTextArea.getText() );
+                strings.add("年级 : " + doBMonthJComboBox.getSelectedItem() );
                 strings.add("地址 : " + addressJTextArea.getText());
                 strings.add("电话 : " + phoneJTextArea.getText());
                 strings.add("密码 : " + passwordJTextArea.getText());
                 //Use this if else to determine whether JPanel is empty or not.
-                if (firstNameJTextArea.getText().equals("") || surnameJTextArea.getText().equals("") || doBMonthJComboBox.getSelectedIndex() == 0 || doBYearJComboBox.getSelectedIndex() == 0
+                if (firstNameJTextArea.getText().equals("")  || doBMonthJComboBox.getSelectedIndex() == 0
                         || addressJTextArea.getText().equals("") || phoneJTextArea.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "请将信息填写完整", null, JOptionPane.WARNING_MESSAGE);
                     lineBorderRed = BorderFactory.createLineBorder(Color.RED, 2);

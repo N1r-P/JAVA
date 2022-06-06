@@ -1,6 +1,7 @@
 package products;
 
 import mainMenu.MainMenuGUI;
+import sql.Sql;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -112,6 +113,8 @@ public class ProductPost extends JFrame{
         buttonPost.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Object[] options = {"确定"};
+                Sql sql = Sql.getInstance();
+                sql.add_goods(nameJTextArea.getText(),Double.parseDouble(priceJTextArea.getText()),descriptionJTextArea.getText(), (String) classifyJComboBox.getSelectedItem());
                 int result= JOptionPane.showOptionDialog(null,"发布成功！！","提示",JOptionPane.INFORMATION_MESSAGE,JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
                 if(result==0)
                 {

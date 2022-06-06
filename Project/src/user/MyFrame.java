@@ -43,59 +43,32 @@ public class MyFrame extends JFrame {
         Color bgColor = new Color(255, 255, 255);
         lineBorderBlack = BorderFactory.createLineBorder(Color.black, 2);
         JPanel p2_1 = new JPanel();//This JPanel is the second level JPanel in JPanel p2
-        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "姓"));//Composite border
+        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "姓名"));//Composite border
         p2_1.setBackground(bgColor);//Set background color of the JPanel
         firstNameJTextArea = new JTextArea("", 1, 10);
         p2_1.add(firstNameJTextArea);
-        JPanel p2_2 = new JPanel();//This JPanel is the second level JPanel in JPanel p2
-        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "名"));
-        p2_2.setBackground(bgColor);
-        surnameJTextArea = new JTextArea("", 1, 10);
-        p2_2.add(surnameJTextArea);
-        p2.add(p2_1);//Add the second level JPanel p2_1 into JPanel p2
-        p2.add(p2_2);//Add the second level JPanel p2_2 into JPanel p2
+        p2.add(p2_1);//Add the second level JPanel p2_2 into JPanel p2
 
         p3 = new JPanel();
-        p3.setBorder(BorderFactory.createTitledBorder("生日"));//Use createTitledBorder() method to set the border of JPanel.
+        p3.setBorder(BorderFactory.createTitledBorder("年级"));//Use createTitledBorder() method to set the border of JPanel.
         JPanel p3_1 = new JPanel();
-        p3_1.setBorder(BorderFactory.createTitledBorder("月份"));
+        p3_1.setBorder(BorderFactory.createTitledBorder("年级"));
         doBMonthJComboBox = new JComboBox<String>();//Declare the variable types of JComboBox.
         doBMonthJComboBox.addItem(new String("---"));//Set Index 0.
-        doBMonthJComboBox.addItem(new String("一月"));
-        doBMonthJComboBox.addItem(new String("二月"));
-        doBMonthJComboBox.addItem(new String("三月"));
-        doBMonthJComboBox.addItem(new String("四月"));
-        doBMonthJComboBox.addItem(new String("五月"));
-        doBMonthJComboBox.addItem(new String("六月"));
-        doBMonthJComboBox.addItem(new String("七月"));
-        doBMonthJComboBox.addItem(new String("八月"));
-        doBMonthJComboBox.addItem(new String("九月"));
-        doBMonthJComboBox.addItem(new String("十月"));
-        doBMonthJComboBox.addItem(new String("十一月"));
-        doBMonthJComboBox.addItem(new String("十二月"));
+        doBMonthJComboBox.addItem(new String("2022级"));
+        doBMonthJComboBox.addItem(new String("2021级"));
+        doBMonthJComboBox.addItem(new String("2020级"));
+        doBMonthJComboBox.addItem(new String("2019级"));
+        doBMonthJComboBox.addItem(new String("2018级"));
+        doBMonthJComboBox.addItem(new String("2017级"));
+        doBMonthJComboBox.addItem(new String("2016级"));
+        doBMonthJComboBox.addItem(new String("2015级"));
+        doBMonthJComboBox.addItem(new String("2014级"));
+        doBMonthJComboBox.addItem(new String("2013级"));
+        doBMonthJComboBox.addItem(new String("2012级"));
+        doBMonthJComboBox.addItem(new String("2011级"));
         p3_1.add(doBMonthJComboBox);
-        JPanel p3_2 = new JPanel();
-        p3_2.setBorder(BorderFactory.createTitledBorder("年份"));
-        doBYearJComboBox = new JComboBox<String>();//Declare the variable types of JComboBox.
-        doBYearJComboBox.addItem(new String("---"));
-        doBYearJComboBox.addItem(new String("1991"));
-        doBYearJComboBox.addItem(new String("1992"));
-        doBYearJComboBox.addItem(new String("1993"));
-        doBYearJComboBox.addItem(new String("1994"));
-        doBYearJComboBox.addItem(new String("1995"));
-        doBYearJComboBox.addItem(new String("1996"));
-        doBYearJComboBox.addItem(new String("1997"));
-        doBYearJComboBox.addItem(new String("1998"));
-        doBYearJComboBox.addItem(new String("1999"));
-        doBYearJComboBox.addItem(new String("2000"));
-        doBYearJComboBox.addItem(new String("2001"));
-        doBYearJComboBox.addItem(new String("2002"));
-        doBYearJComboBox.addItem(new String("2003"));
-        doBYearJComboBox.addItem(new String("2004"));
-        doBYearJComboBox.addItem(new String("2005"));
-        p3_2.add(doBYearJComboBox);
         p3.add(p3_1);
-        p3.add(p3_2);
 
         p4 = new JPanel();
         p4.setBorder(BorderFactory.createTitledBorder("地址"));
@@ -168,7 +141,7 @@ public class MyFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> strings = new ArrayList<String>();
                 strings.add("姓名 : " + firstNameJTextArea.getText() + " " + surnameJTextArea.getText());
-                strings.add("生日 : " + doBMonthJComboBox.getSelectedItem() + " " + doBYearJComboBox.getSelectedItem());
+                strings.add("年级 : " + doBMonthJComboBox.getSelectedItem() + " " + doBYearJComboBox.getSelectedItem());
                 strings.add("地址 : " + addressJTextArea.getText());
                 strings.add("电话 : " + phoneJTextArea.getText());
                 strings.add("密码 : " + passwordJTextArea.getText());
@@ -182,27 +155,15 @@ public class MyFrame extends JFrame {
                      * change the border into lineBorderRed.
                      */
                     if (firstNameJTextArea.getText().equals("")) {
-                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "姓"));
+                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "姓名"));
                     } else {
-                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "姓"));
-                    }
-
-                    if (surnameJTextArea.getText().equals("")) {
-                        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "名"));
-                    } else {
-                        p2_2.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "名"));
+                        p2_1.setBorder(BorderFactory.createTitledBorder(lineBorderBlack, "姓名"));
                     }
 
                     if (doBMonthJComboBox.getSelectedIndex() == 0) {
-                        p3_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "月份"));
+                        p3_1.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "年级"));
                     } else {
-                        p3_1.setBorder(BorderFactory.createTitledBorder("月份"));
-                    }
-
-                    if (doBYearJComboBox.getSelectedIndex() == 0) {
-                        p3_2.setBorder(BorderFactory.createTitledBorder(lineBorderRed, "年份"));
-                    } else {
-                        p3_2.setBorder(BorderFactory.createTitledBorder("年份"));
+                        p3_1.setBorder(BorderFactory.createTitledBorder("年级"));
                     }
 
                     if (addressJTextArea.getText().equals("")) {

@@ -59,6 +59,7 @@ public class ProductDetail extends JFrame {
         setSize(530, 240);
         setLocation(300, 300);
         setVisible(true);
+        setResizable(false);
     }
 
 }

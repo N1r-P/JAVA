@@ -107,17 +107,14 @@ public class MyFrame extends JFrame {
         p8 = new JPanel();
         p8.setBorder(BorderFactory.createLoweredBevelBorder());
         buttonNextstep = new JButton("下一步");
-        buttonClear = new JButton("清空");
         buttonExit = new JButton("返回");
         /**
          * Let the Layout invalid and set the buttons' position with setBounds() method.
          */
         p8.setLayout(null);
-        buttonNextstep.setBounds(40, 30, 100, 25);
-        buttonClear.setBounds(160, 30, 80, 25);
-        buttonExit.setBounds(260, 30, 60, 25);
+        buttonNextstep.setBounds(60, 30, 80, 25);
+        buttonExit.setBounds(220, 30, 80, 25);
         p8.add(buttonNextstep);
-        p8.add(buttonClear);
         p8.add(buttonExit);
 
         /**
@@ -198,21 +195,6 @@ public class MyFrame extends JFrame {
                     }
 
                 }
-            }
-        });
-
-        buttonClear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Clear the text in the text box, and make the JComboBox's index to 0.
-                doBMonthJComboBox.setSelectedIndex(0);
-                doBYearJComboBox.setSelectedIndex(0);
-                firstNameJTextArea.setText("");
-                surnameJTextArea.setText("");
-                addressJTextArea.setText("");
-                phoneJTextArea.setText("");
-                passwordJTextArea.setText("");
-                checkBox1.setSelected(false);
-                checkBox2.setSelected(false);
             }
         });
 

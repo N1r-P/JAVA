@@ -78,5 +78,36 @@ public class Sql {
         this.closeConnection();
     }
 
+    public void add_user_information(String name,String grade,String address,String phone_number,String password)
+    {
+        this.getConnection();
+        command = String.format("INSERT INTO user_information VALUES(NULL,'%s','%s','%s','%s','%s')",name,grade,address,phone_number,password);
+        try {
+            statement.executeUpdate(command);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        this.closeConnection();
+    }
 
+    public String inquire_goods(int i)
+    {
+        String result = null;
+        this.getConnection();
+        command = String.format("SELECT * FROM goods");
+        try {
+            resultSet = statement.executeQuery(command);
+            while(resultSet.next())
+            {
+                if (resultSet.getInt("id")==i)
+                {
+                   result = resultSet.getString("what");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        this.closeConnection();
+        return result;
+    }
 }

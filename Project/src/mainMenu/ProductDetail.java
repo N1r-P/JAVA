@@ -27,11 +27,13 @@ public class ProductDetail extends JFrame {
 
         //三个组件
         textArea = new TextArea();
+        textArea.setEditable(false);
         exitButton = new JButton("退出");
         buyButton = new JButton("购买");
 
         //更新文本显示区内容
         textArea.setText(a);
+
         exitButton.addActionListener(new ActionListener() {
 
 

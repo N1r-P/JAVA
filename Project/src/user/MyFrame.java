@@ -188,8 +188,7 @@ public class MyFrame extends JFrame {
                     if (checkBox1.isSelected() && checkBox2.isSelected()) {
                         int a = JOptionPane.showConfirmDialog(null, "你是否已经检查过所有信息? 信息提交后你将无法再修改", "确认提交?", JOptionPane.YES_NO_OPTION);
                         if (a == JOptionPane.YES_OPTION) {
-                            Sql sql = Sql.getInstance();
-                            sql.add_user_information(firstNameJTextArea.getText(),(String) doBMonthJComboBox.getSelectedItem(),addressJTextArea.getText(),phoneJTextArea.getText(),passwordJTextArea.getText());
+                            dispose();
                             JFrame anotherJFrame = new AnotherFrame(strings.get(0), strings.get(1), strings.get(2), strings.get(3), strings.get(4));
                             anotherJFrame.setVisible(true);
                         }

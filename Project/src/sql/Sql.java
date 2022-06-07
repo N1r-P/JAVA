@@ -101,7 +101,10 @@ public class Sql {
             {
                 if (resultSet.getInt("id")==i)
                 {
-                   result = resultSet.getString("what");
+                   result = "name:"+resultSet.getString("name")+"\n"+
+                            "description:"+resultSet.getString("description")+"\n"+
+                            "price:"+resultSet.getString("price")+"\n"+
+                            "classification:"+resultSet.getString("classification");
                 }
             }
         } catch (SQLException e) {

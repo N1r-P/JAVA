@@ -1,36 +1,22 @@
 package user;
 
-import mainMenu.MainMenuGUI;
 import sql.Sql;
 
-import java.awt.*;
 import javax.swing.*;
-import javax.swing.JPanel;
-import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 import static user.Log.IfLog;
 
-/**
- * This class is the another frame and contains some components of the application.
- */
-
-public class Information extends JFrame {
-
+public class Bought extends JFrame{
     JLabel northJLabel;
     JPanel p, centerJPanel, southJPanel;
     JTextArea centerJTextArea;
     JButton southJButton;
-
-    /**
-     * This method is the construction method of the class MyFrame.
-     */
-
-    public Information(String string0, String string1, String string2, String string3, String string4){
-        super("您的信息");
+    public Bought() {
         p = new JPanel(new BorderLayout());
-        northJLabel = new JLabel("您的基本信息", JLabel.CENTER);
+        northJLabel = new JLabel("购买信息", JLabel.CENTER);
         p.add(northJLabel, BorderLayout.NORTH);
 
         Sql sql = Sql.getInstance();
@@ -38,16 +24,7 @@ public class Information extends JFrame {
         centerJPanel = new JPanel();
         centerJPanel.setBorder(BorderFactory.createLoweredBevelBorder());
         centerJTextArea = new JTextArea(5,30);
-        centerJTextArea.append(string0);//Add string param into the JTextArea through append() method.
-        centerJTextArea.append(sql.inquire_user_information_name(IfLog)+"\n");//Add line feed.
-        centerJTextArea.append(string1);
-        centerJTextArea.append(sql.inquire_user_information_grade(IfLog)+"\n");
-        centerJTextArea.append(string2);
-        centerJTextArea.append(sql.inquire_user_information_address(IfLog)+"\n");
-        centerJTextArea.append(string3);
-        centerJTextArea.append(sql.inquire_user_information_phone(IfLog)+"\n");
-        centerJTextArea.append(string4);
-        centerJTextArea.append(sql.inquire_user_information_password(IfLog));
+        centerJTextArea.append(sql.inquire_user_information_bought(IfLog));
         centerJTextArea.setEditable(false);
         centerJTextArea.setOpaque(false);//Make the JTextArea be transparency.
         centerJTextArea.setForeground(Color.BLACK);
@@ -56,7 +33,7 @@ public class Information extends JFrame {
 
         southJPanel = new JPanel();
         southJPanel.setBorder(BorderFactory.createLoweredBevelBorder());
-        southJButton = new JButton("完成");
+        southJButton = new JButton("返回");
         southJPanel.add(southJButton);
         p.add(southJPanel, BorderLayout.SOUTH);
 
@@ -73,5 +50,7 @@ public class Information extends JFrame {
                 m.setVisible(true);
             }
         });
+
+
     }
 }

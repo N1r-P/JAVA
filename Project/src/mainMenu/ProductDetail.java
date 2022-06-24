@@ -1,15 +1,19 @@
 package mainMenu;
 
+import sql.Sql;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import static user.Log.IfLog;
+
 
 public class ProductDetail extends JFrame {
 
-    public ProductDetail(String a){
+    public ProductDetail(String information,String name){
         super("商品详情~");
         //三个组件
         JButton exitButton;
@@ -32,7 +36,7 @@ public class ProductDetail extends JFrame {
         buyButton = new JButton("购买");
 
         //更新文本显示区内容
-        textArea.setText(a);
+        textArea.setText(information);
 
         exitButton.addActionListener(new ActionListener() {
 
@@ -47,6 +51,8 @@ public class ProductDetail extends JFrame {
 
 
             public void actionPerformed(ActionEvent e) {
+                Sql sql = Sql.getInstance();
+                sql.update_user_information_bought(IfLog,name+"___"+sql.inquire_user_information_bought(IfLog));
                 dispose();
                 buy a=new buy();
                 a.setVisible(true);
@@ -58,7 +64,7 @@ public class ProductDetail extends JFrame {
         container.add(exitButton);
         container.add(buyButton);
 
-        setSize(530, 240);
+        setSize(800, 400);
         setLocation(300, 300);
         setVisible(true);
         setResizable(false);

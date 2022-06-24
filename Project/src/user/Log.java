@@ -1,6 +1,7 @@
 package user;
 
 import mainMenu.MainMenuGUI;
+import sql.Sql;
 
 import java.awt.*;
 import javax.swing.*;
@@ -16,6 +17,7 @@ public class Log extends JFrame{
     private JButton buttonLog,buttonBack;
     private JLabel titleJLabel;
     private Border lineBorderBlack;
+    public static int IfLog = 0;
 
     public Log() {
         super("登录");//Using the construction method of the parent class.
@@ -70,12 +72,23 @@ public class Log extends JFrame{
         buttonLog.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Object[] options = {"确定"};
+                Sql sql = Sql.getInstance();
                 int result= JOptionPane.showOptionDialog(null,"登录成功！！","提示",JOptionPane.INFORMATION_MESSAGE,JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
-                if(result==0)
+                for (int i=1;i<=50;i++)
                 {
-                    dispose();
-                    MainMenuGUI mainMenugui = new MainMenuGUI();
-                    mainMenugui.setVisible(true);
+                    if(sql.inquire_user_information_phone(i)!=null)
+                    {
+                        if(sql.inquire_user_information_phone(i).equals(phoneJTextArea.getText())&&sql.inquire_user_information_password(i).equals(passwordJTextArea.getText()))
+                        {
+                            if(result==0)
+                            {
+                                IfLog = i;
+                                dispose();
+                                MainMenuGUI mainMenugui = new MainMenuGUI();
+                                mainMenugui.setVisible(true);
+                            }
+                        }
+                    }
                 }
             }
         });

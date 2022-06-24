@@ -1,7 +1,6 @@
 package user;
 
 import mainMenu.MainMenuGUI;
-import products.ProductsDisplay;
 
 import javax.swing.*;
 import java.awt.*;
@@ -115,7 +114,7 @@ public class Mygui extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                SoldAndBought f = new SoldAndBought();
+                Sold f = new Sold();
                 f.setVisible(true);
             }
         });
@@ -124,7 +123,7 @@ public class Mygui extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                SoldAndBought f = new SoldAndBought();
+                Bought f = new Bought();
                 f.setVisible(true);
             }
         });

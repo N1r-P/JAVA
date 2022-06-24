@@ -3,6 +3,7 @@ package mainMenu;
 
 import products.Classify;
 import products.Post;
+import sql.Sql;
 import user.Mygui;
 
 import javax.swing.*;
@@ -10,6 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class MainMenuGUI extends JFrame {
 
@@ -40,22 +42,26 @@ public class MainMenuGUI extends JFrame {
     public MainMenuGUI() {
         super("易圈");//Using the construction method of the parent class.
 
+        Random random = new Random();
+        int random_production = random.nextInt(1);
+
         /**
          * create the components.组成原件
          */
         titleLabel = new JLabel("          Easy         Circle");
-        buttonAdvice1 = new JButton("二手HUAWEA路由器");
-        buttonAdvice2 = new JButton("二手晾衣架");
-        buttonAdvice3 = new JButton("代签到");
-        buttonAdvice4 = new JButton("跑腿买饭");
+        Sql sql = Sql.getInstance();
+        buttonAdvice1 = new JButton(sql.inquire_goods_name(random_production+1));
+        buttonAdvice2 = new JButton(sql.inquire_goods_name(random_production+2));
+        buttonAdvice3 = new JButton(sql.inquire_task_name(random_production+1));
+        buttonAdvice4 = new JButton(sql.inquire_task_name(random_production+2));
         buttonSort = new JButton("分类");
         buttonRelease = new JButton("发布");
         buttonUserInformation = new JButton("我的");
 
         buttonAdvice1.setBackground(Color.ORANGE);//advice1按钮橙色
-        buttonAdvice2.setBackground(Color.PINK);//advice2按钮橙色
-        buttonAdvice3.setBackground(Color.GREEN);//advice3按钮绿色
-        buttonAdvice4.setBackground(Color.YELLOW);//advice3按钮绿色
+        buttonAdvice2.setBackground(Color.ORANGE);//advice2按钮橙色
+        buttonAdvice3.setBackground(Color.PINK);//advice3按钮粉色
+        buttonAdvice4.setBackground(Color.PINK);//advice3按钮粉色
         buttonSort.setBackground(Color.WHITE);//分类按钮白色
         buttonRelease.setBackground(Color.WHITE);//发布按钮白色
         buttonUserInformation.setBackground(Color.WHITE);//用户按钮白色
@@ -131,25 +137,29 @@ public class MainMenuGUI extends JFrame {
          */
         buttonAdvice1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ProductDetail p1 = new ProductDetail("二手HUAWEA路由器");
+                Sql sql = Sql.getInstance();
+                ProductDetail p1 = new ProductDetail(sql.inquire_goods(random_production+1),sql.inquire_goods_name(random_production+1));
                 p1.setVisible(true);
             }
         });
         buttonAdvice2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ProductDetail p2 = new ProductDetail("二手晾衣架");
+                Sql sql = Sql.getInstance();
+                ProductDetail p2 = new ProductDetail(sql.inquire_goods(random_production+2),sql.inquire_goods_name(random_production+2));
                 p2.setVisible(true);
             }
         });
         buttonAdvice3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ProductDetail p3 = new ProductDetail("代签到");
+                Sql sql = Sql.getInstance();
+                ProductDetail p3 = new ProductDetail(sql.inquire_task(random_production+1),sql.inquire_task_name(random_production+1));
                 p3.setVisible(true);
             }
         });
         buttonAdvice4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ProductDetail p4 = new ProductDetail("跑腿买饭");
+                Sql sql = Sql.getInstance();
+                ProductDetail p4 = new ProductDetail(sql.inquire_task(random_production+2),sql.inquire_task_name(random_production+2));
                 p4.setVisible(true);
             }
         });

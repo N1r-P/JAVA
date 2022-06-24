@@ -25,6 +25,13 @@ public class Classify extends JFrame {
         button5 = new JButton("美妆");
         button6 = new JButton("电器");
         button7 = new JButton("日用品");
+        button1.setBackground(Color.ORANGE);
+        button2.setBackground(Color.ORANGE);
+        button3.setBackground(Color.ORANGE);
+        button4.setBackground(Color.ORANGE);
+        button5.setBackground(Color.ORANGE);
+        button6.setBackground(Color.ORANGE);
+        button7.setBackground(Color.ORANGE);
         p1.setLayout(null);
         button1.setBounds(35, 35, 100, 40);
         button2.setBounds(35, 85, 100, 40);
@@ -49,6 +56,11 @@ public class Classify extends JFrame {
         button10 = new JButton("代排队");
         button11 = new JButton("其他");
         buttonBack = new JButton("返回");
+        button8.setBackground(Color.PINK);
+        button9.setBackground(Color.PINK);
+        button10.setBackground(Color.PINK);
+        button11.setBackground(Color.PINK);
+
         p2.setLayout(null);
         button8.setBounds(35, 35, 100, 40);
         button9.setBounds(35, 85, 100, 40);
@@ -74,7 +86,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("服饰");
                 f.setVisible(true);
             }
         });
@@ -83,7 +95,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("洗护用品");
                 f.setVisible(true);
             }
         });
@@ -92,7 +104,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("数码产品");
                 f.setVisible(true);
             }
         });
@@ -101,7 +113,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("食品");
                 f.setVisible(true);
             }
         });
@@ -110,7 +122,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("美妆");
                 f.setVisible(true);
             }
         });
@@ -119,7 +131,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("电器");
                 f.setVisible(true);
             }
         });
@@ -128,7 +140,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                GoodsDisplay f = new GoodsDisplay("日用品");
                 f.setVisible(true);
             }
         });
@@ -137,7 +149,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                TaskDisplay f = new TaskDisplay("跑腿");
                 f.setVisible(true);
             }
         });
@@ -146,7 +158,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                TaskDisplay f = new TaskDisplay("借东西");
                 f.setVisible(true);
             }
         });
@@ -155,7 +167,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                TaskDisplay f = new TaskDisplay("代排队");
                 f.setVisible(true);
             }
         });
@@ -164,7 +176,7 @@ public class Classify extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // To exit the program.
                 dispose();
-                ProductsDisplay f = new ProductsDisplay();
+                TaskDisplay f = new TaskDisplay("其他");
                 f.setVisible(true);
             }
         });

@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import static user.Log.IfLog;
+
 public class TaskPost extends JFrame{
     private JPanel p, p1, p2, p3, p4, p5, p6, p7;
     private JTextArea nameJTextArea, priceJTextArea, descriptionJTextArea, timeJTextArea;
@@ -122,6 +124,7 @@ public class TaskPost extends JFrame{
                 Object[] options = {"确定"};
                 Sql sql = Sql.getInstance();
                 sql.add_task(nameJTextArea.getText(),descriptionJTextArea.getText(),Double.parseDouble(priceJTextArea.getText()),timeJTextArea.getText(), (String) classifyJComboBox.getSelectedItem());
+                sql.update_user_information_sold(IfLog,nameJTextArea.getText()+"___"+sql.inquire_user_information_sold(IfLog));
                 int result= JOptionPane.showOptionDialog(null,"发布成功！！","提示",JOptionPane.INFORMATION_MESSAGE,JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
                 if(result==0)
                 {

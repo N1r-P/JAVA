@@ -190,6 +190,7 @@ public class MyFrame extends JFrame {
                         if (a == JOptionPane.YES_OPTION) {
                             Sql sql = Sql.getInstance();
                             sql.add_user_information(firstNameJTextArea.getText(),(String) doBMonthJComboBox.getSelectedItem(),addressJTextArea.getText(),phoneJTextArea.getText(),passwordJTextArea.getText());
+                            dispose();
                             JFrame anotherJFrame = new AnotherFrame(strings.get(0), strings.get(1), strings.get(2), strings.get(3), strings.get(4));
                             anotherJFrame.setVisible(true);
                         }

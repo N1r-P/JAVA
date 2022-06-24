@@ -1,5 +1,6 @@
 package products;
 
+import mainMenu.MainMenuGUI;
 import mainMenu.ProductDetail;
 import sql.Sql;
 
@@ -9,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+<<<<<<< HEAD:Project/src/products/TaskDisplay.java
 public class TaskDisplay extends JFrame{
     public TaskDisplay(String classification) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,13 +63,48 @@ public class TaskDisplay extends JFrame{
             }
             }
         }
+=======
+public class SoldAndBought extends JFrame{
+    JLabel northJLabel;
+    JPanel p, centerJPanel, southJPanel;
+    JTextArea centerJTextArea;
+    JButton southJButton;
+    public SoldAndBought() {
+        p = new JPanel(new BorderLayout());
+        northJLabel = new JLabel("购买信息", JLabel.CENTER);
+        p.add(northJLabel, BorderLayout.NORTH);
 
-        contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        //先把panel添加到contentPane
-        contentPane.add(panel);
-        //添加Jscrollpane滚动,只能用
-        JScrollPane scrollPane = new JScrollPane(contentPane);
-        //最后添加上scrollPane
-        setContentPane(scrollPane);
+        centerJPanel = new JPanel();
+        centerJPanel.setBorder(BorderFactory.createLoweredBevelBorder());
+        centerJTextArea = new JTextArea(5,30);
+        centerJTextArea.append("\n");
+        centerJTextArea.setEditable(false);
+        centerJTextArea.setOpaque(false);//Make the JTextArea be transparency.
+        centerJTextArea.setForeground(Color.BLACK);
+        centerJPanel.add(centerJTextArea);
+        p.add(centerJPanel, BorderLayout.CENTER);
+
+        southJPanel = new JPanel();
+        southJPanel.setBorder(BorderFactory.createLoweredBevelBorder());
+        southJButton = new JButton("返回");
+        southJPanel.add(southJButton);
+        p.add(southJPanel, BorderLayout.SOUTH);
+
+        this.add(p);
+        this.setSize(500,220);
+        this.setLocation(300, 300);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        southJButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                Mygui m = new Mygui();
+                m.setVisible(true);
+            }
+        });
+
+>>>>>>> a5b9f47fa3cc5da4e5b1cca06788d470a56abac7:Project/src/user/SoldAndBought.java
+
     }
 }
